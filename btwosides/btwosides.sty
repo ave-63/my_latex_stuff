@@ -1,0 +1,23 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% For 3-hole punched pages.
+%
+% Must use article document class arg [twoside]
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
+[1994/12/01]% LaTeX date must be December 1994 or later
+\ProvidesPackage{btwosides}
+\RequirePackage{bcommon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Margins. Extra 0.5in inner for hole punch.
+% Paragraphs have extra .25in padding. 
+% You'll need to mess with non-paragraphs! 
+% Many months later: Or maybe not? non-paragraphs seem to be working fine.
+% Many many months later: deleting the paragraph padding. It looked nice
+% sometimes but not for all documents.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[letterpaper, inner=1in, outer=.5in, top=.75in, bottom=.75in]{geometry}
+%\leftskip=.25in
+%\rightskip=.25in

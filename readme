@@ -1,0 +1,16 @@
+Ben's latex packages
+====================
+
+bexam - to be used with documentclass exam. Adds title, footers, etc.
+boneside & btwosides - Regular article, with nice margins.
+bcommon - all include this: includes fonts, etc.
+
+(btwosidesexam - Ignore this. It was an attempt to make my own exam package which used an article documentclass instead. Maybe I'll work on it again someday if there's a reason to.)
+
+**To use:**
+1. Put the folders in a directory such as c:\Users\your_name\onedrive\local_tex_stuff\tex\latex. 
+
+2. Run MikTeX Console... Settings... Directories... Add a local TEXMF root directory with path c:\Users\your_name\onedrive\local_tex_stuff. This should make it so that you can use \includepackage{bexam}, and so on.
+
+**Other method: (not tested)**
+1. Just put all the .sty files in the same directory as the .tex file you're compiling? I think there's an easy way to do this.

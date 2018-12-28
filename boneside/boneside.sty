@@ -1,0 +1,18 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% For NOT 3-hole punched pages.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
+[1994/12/01]% LaTeX date must be December 1994 or later
+\ProvidesPackage{boneside}
+\RequirePackage{bcommon}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paragraphs have .75 in margins
+% section headings, other stuff has .5 in margins on left 
+% You'll need to mess with non-paragraphs!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[letterpaper, inner=.5in, outer=.75in, top=.75in, bottom=.75in]{geometry}
+\leftskip=.25in

@@ -1,0 +1,117 @@
+%Finished importing into TB_1 5/2018
+
+\documentclass[11pt, letterpaper]{exam}
+\usepackage{bexam}
+
+\begin{document}
+\newcommand{\btitle}{Midterm 1}
+\newcommand{\bcourse}{270}
+\bmaketitle{On 1.1 - 1.9}
+\bdefaultrules
+\bdefaultinstructions
+
+\begin{questions}
+
+\begin{q}{18}
+	Is each statement True or False? No need to justify answers.
+	\begin{bparts}
+	\part \rule{10ex}{0.8pt} Given two vectors $\vec{v}$ and $\vec{p}$, the set $\{\vec{p}+ t\vec{v}\ : t \in \R\}$ describes a line through $\vec{v}$ parallel to $\vec{p}$.
+	\part \rule{10ex}{0.8pt} If $S$ is a linearly dependent set, then \emph{each} vector is a linear combination of the other vectors in $S$.
+	\part \rule{10ex}{0.8pt} %Sect 1.4
+	If $A = \begin{bmatrix}
+		1 & 0 & 5 \\
+		0 & 1 & 1 \\
+		0 & 0 & 0
+	\end{bmatrix}$, then for every $\mathbf{b}$ in $\mathbb{R}^3$,
+	the equation $A\mathbf{x}=\mathbf{b}$ has a solution.
+	\part \rule{10ex}{0.8pt} Every homogeneous system of equations has at least one solution.
+	\part \rule{10ex}{.8pt} If $\vec{u}, \vec{v}$ and $\vec{w}$ are vectors in $\R^2$, then $\{\vec{u}, \vec{v}, \vec{w} \}$ is a linearly dependent set.
+	\part \rule{10ex}{.8pt} If a set $S = \{ \vec{v}_1, \ldots, \vec{v}_n \}$ of two or more vectors is linearly dependent, then at least one vector in the set can be written as a linear combination of other vectors in the set.
+	\end{bparts}
+\end{q}
+\vspace{.5in}
+
+\begin{q}{6}
+	Let $A$ be a $6 \times 5$ matrix. What must $a$ and $b$ be in order to define a transformation $T: \R^a \rightarrow \R^b$ by the rule $T(\vec{x}) = A \vec{x}$?
+\end{q}
+\vspace{1in}
+
+\begin{q}{10}
+	Row reduce the matrix to reduced echelon form by hand (and show work).
+	$\begin{bmatrix}
+		1 & 7& 3& -4 \\
+		1 & 7 & 4 & -2 \\
+		-2 & -14 & -5 & 10
+	\end{bmatrix}$
+\end{q}
+\vfill
+\newpage
+
+\begin{q}{10}
+  \begin{bparts}
+    \part Give an example of vectors two vectors, $\vec{u}$ and $\vec{v}$ in $\R^3$, so that $\Span\{ \vec{u}, \vec{v} \}$ is a \emph{plane} in $\R^3$.
+    \part  Give an example of vectors two vectors, $\vec{x}$ and $\vec{y}$ in $\R^3$, so that $\Span\{ \vec{x}, \vec{y} \}$ is a \emph{line} in $\R^3$.
+  \end{bparts}
+\end{q}
+\vfill
+
+\begin{q}{10}
+	\begin{bparts}
+		\part Write the solution set of $x_1+9x_2-4x_3 = 0$ in parametric vector form.
+		\part Write the solution set of $x_1+9x_2-4x_3 = -2$ in parametric vector form.
+	\end{bparts}
+\end{q}
+\vfill \vfill
+
+\begin{q}{8}
+	The figure shows vectors $\vec{u}, \vec{v}$, and $\vec{w}$, along with the images $T(\vec{u})$ and $T(\vec{v})$ under a linear transformation $T:\R^2 \rightarrow \R^2$. Draw the image $T(\vec{w})$ as accurately as possible. (\emph{hint:} First, write $\vec{w}$ as a linear combination of $\vec{u}$ and $\vec{v}$)
+
+	\includegraphics[width=0.9\linewidth]{SumatraPDF_2018-03-26_11-52-49.png}
+\end{q}
+ \vfill
+\newpage
+
+\begin{q}{15} %Sect 1.7 - From sp2017 M1 1.1-1.9
+	State whether each set of vectors is linearly dependent
+	or independent. Justify your answers.
+	\begin{bparts}
+		\part
+		$\left\{ \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix},
+		\begin{bmatrix} 4\\5\\6 \end{bmatrix},
+		\begin{bmatrix} 0\\0\\0 \end{bmatrix} \right\}$
+		\part
+		$\{\mathbf{v}_1,\mathbf{v}_2,\mathbf{v}_3, \mathbf{v}_4\}$,
+		a set of 4 vectors in $\mathbb{R}^3$.
+		\part
+		The set of column vectors from the $3 \times 3$ identity matrix,
+		$\begin{bmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{bmatrix}$.
+	\end{bparts}
+\end{q}
+\vfill
+
+\begin{q}{16}
+	Each part describes a linear transformation $T$. Find the standard matrix of each transformation.
+	\begin{bparts}
+		\part $T:\R^2 \rightarrow \R^2$ is a horizontal shear transformation that leaves $\vec{e}_1$ unchanged, and $T(\vec{e}_2) = \vec{e}_2 + 3\vec{e}_1$.
+		\part $T: \R^3 \rightarrow \R^2$ projects points in $\R^3$ onto the $x_1 x_3$-plane, so that $T(x_1,x_2,x_3) = (x_1, x_3)$.
+		\part (optional question for +3 extra credit pts) $T: \R^3 \rightarrow \R^3$ rotates points around the $x_2$axis at an angle $\frac{\pi}{3}$ clockwise (when looking towards the origin from the positive $x_2$-axis).
+	\end{bparts}
+\end{q}
+\vfill
+
+\newpage
+\begin{q}{12} %1.6
+	Large intersections in England are often one-way \emph{roundabouts} like the one shown. (Fun Fact: In Los Angeles, you can find a roundabout at the intersection of Figueroa and San Fernando, underneath the 5/110 freeway interchange, as well as in the Burbank IKEA parking lot.) The given traffic flows are in cars per minute.
+	\begin{bparts}
+		\part Write a system of equations describing the traffic flows $x_1,\mathellipsis, x_6$. 
+		\part Solve the system.
+	\end{bparts}
+	\includegraphics[width=.5\textwidth]{SumatraPDF_2018-02-14_12-52-40.png}
+\end{q}
+
+\end{questions}
+\end{document}

@@ -1,0 +1,110 @@
+%
+%This is Ben's first attempt at writing a package.
+%
+%The document MUST define \bcourse and \btitle with something like:
+%\newcommand{\btitle}{Midterm 1}
+%\newcommand{\bcourse}{125}
+
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
+[1994/12/01]% LaTeX date must be December 1994 or later
+\ProvidesPackage{bexam}
+\RequirePackage{bcommon}
+
+\RequirePackage[document]{ragged2e} %better ragged right justification
+\RequirePackage[nomessages]{fp} %does arithmetic for \thequestionplus{arg1}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header, Instructions, Rules, Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addpoints %command for exam class to add up total points
+
+%argument:{sections_covered}
+%example argument: {1.1 - 2.3}
+\newcommand{\bmaketitle}[1]{%
+  \raggedright{\large{\textbf{Math \bcourse \hfill
+        Name:\enspace\makebox[3in]{\hrulefill}}}} 
+  
+  \raggedright{\large{\textbf{\btitle}}}
+  
+  \raggedright{\large{\textbf{#1}} \hfill  
+    \small{Score:\enspace\makebox[.5in]
+      {\hrulefill}/ \numpoints = \enspace\makebox[.5in]{\hrulefill}\%}}
+  
+  \vspace{.2in}
+}
+
+
+%no arguments for no content line
+\newcommand{\bmaketitlenocontent}{%
+  \raggedright{\large{\textbf{Math \bcourse \hfill
+        Name:\enspace\makebox[3in]{\hrulefill}}}} 
+  
+  \raggedright{\large{\textbf{\btitle}}}
+  
+  \raggedright{\hfill  
+    \small{Score:\enspace\makebox[.5in]
+      {\hrulefill}/\numpoints = \enspace\makebox[.5in]{\hrulefill}\%}}
+  
+  \vspace{.2in}
+}
+
+\newcommand{\bdefaultrules}{%
+  {\scriptsize Rules: You may use a calculator but no notes. Do not share 
+    calculators, or look in the general direction of other's tests.
+    Smartphones and smartwatches must be out of sight at all times. I can
+    answer questions about the meaning of English words, and you should ask
+    me if you think a question has a typo. I will \emph{not} give you hints,
+    or comment on your answers, or explain math terminology.}
+  
+  \vspace{.2in}
+}
+
+\newcommand{\bswinstructions}{%
+   \small{
+      Instructions: For multiple choice problems, circle the best choice. You should have plenty of time, so read carefully!
+      \newline
+   }
+   \hrulefill
+   \vspace{.2in}
+}
+
+\newcommand{\bdefaultinstructions}{
+  \small{
+    Instructions:  Box your answers. Show any work that there is to be shown. \\
+    %If you're using calculator tricks, just write a note like ``from
+    %calculator graph, \framebox{$x=5$}." \\
+  }
+  \hrulefill
+  \vspace{.2in}
+}
+
+\pagestyle{foot}
+\runningfootrule
+\firstpagefooter{}{}{}
+\runningfooter{\small{Pierce College - Math \bcourse\ - B. Smith}}{\small{\btitle}}{\small{Page \thepage\ of \numpages}}
+\extraheadheight{-.5in}
+\extrafootheight{-.2in}
+\extrawidth{1in}
+\bracketedpoints
+\pointname{ pts}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Questions, Parts, Choices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thequestionplus}[1]{\FPeval{\result}{clip(\thequestion+#1)}\result}
+
+%This creates a minipage around each question, to prevent line breaks
+%within questions. Ex: \begin{q}{12}Yda yada?\end{q}
+\newenvironment{q}[1]{ \begin{minipage}{\linewidth} \question[#1]}{\end{minipage}}
+
+%Question No Points. Same as q, above, but no points. 
+\newenvironment{qnp}{ \begin{minipage}{\linewidth} \question}{\end{minipage}}
+
+%This creates a parts environment with a little extra vspace
+%at the beginning, because the default spacing was too small.
+\newenvironment{bparts}{\vspace{.08in} \begin{parts}}{\end{parts}}
+
+%This creates a choices environment with a little extra vspace
+%at the beginning, because the default spacing was too small.
+\newenvironment{bchoices}{\vspace{.05in} \begin{choices}}{\vspace{.08in} \end{choices}}
