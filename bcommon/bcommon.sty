@@ -8,15 +8,33 @@
 [1994/12/01]% LaTeX date must be December 1994 or later
 \ProvidesPackage{bcommon}
 
+\newif\if@sans
+\newif\if@roman
+
+\DeclareOption{sans}{%
+\@sanstrue}
+
+\DeclareOption{roman}{%
+\@romantrue}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages, Fonts
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\ExecuteOptions{roman}
+
+\ProcessOptions*
+\if@sans
+\RequirePackage{arev}
+\fi
+\if@roman
 \RequirePackage{mathpazo}
 \RequirePackage{fontspec}
 \setmainfont{TeX Gyre Pagella}
 \setsansfont{TeX Gyre Heros}[Scale=MatchLowercase]
 \setmonofont{Inconsolata}[Scale=MatchLowercase]
+\fi
 
 
 \RequirePackage{amsmath}
@@ -81,3 +99,5 @@
 \newcommand{\bbbvec}[3]{
   \begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}
 }
+
+\endinput

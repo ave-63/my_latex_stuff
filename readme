@@ -14,3 +14,7 @@ bcommon - all include this: includes fonts, etc.
 
 **Other method: (not tested)**
 1. Just put all the .sty files in the same directory as the .tex file you're compiling? I think there's an easy way to do this.
+
+Changelog
+---------
+Version 1.2 December 2018: Added options sans (arev font for text and math) and roman (palatino for text and math) to all packages. One or the other must be chosen.

@@ -8,7 +8,24 @@
 \NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
 [1994/12/01]% LaTeX date must be December 1994 or later
 \ProvidesPackage{bexam}
-\RequirePackage{bcommon}
+
+\newif\if@sans
+\newif\if@roman
+
+\DeclareOption{sans}{%
+\@sanstrue}
+
+\DeclareOption{roman}{%
+\@romantrue}
+
+%\ExecuteOptions{roman}
+\ProcessOptions*
+\if@sans
+\RequirePackage[sans]{bcommon}
+\fi
+\if@roman
+\RequirePackage[roman]{bcommon}
+\fi
 
 \RequirePackage[document]{ragged2e} %better ragged right justification
 \RequirePackage[nomessages]{fp} %does arithmetic for \thequestionplus{arg1}
@@ -108,3 +125,5 @@
 %This creates a choices environment with a little extra vspace
 %at the beginning, because the default spacing was too small.
 \newenvironment{bchoices}{\vspace{.05in} \begin{choices}}{\vspace{.08in} \end{choices}}
+
+\endinput
