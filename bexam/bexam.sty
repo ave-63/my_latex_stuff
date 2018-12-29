@@ -126,4 +126,26 @@
 %at the beginning, because the default spacing was too small.
 \newenvironment{bchoices}{\vspace{.05in} \begin{choices}}{\vspace{.08in} \end{choices}}
 
+%Added 12/2018. Needed for below.
+\newcommand{\bpart}[1]{\part #1}
+
+%Parts environmant that takes ammt of vertical extra space between parts.
+\newenvironment{onecolparts}[1]
+{\begin{parts} \vspace{.08in}%
+\renewcommand{\bpart}[1]{%
+    \part ##1 \vspace{#1}%
+}}
+{\end{parts}}
+
+%Added 12/2018: 
+%Parts environment with two columns. Argument is ammt of extra vertical space between parts.
+\newenvironment{twocolparts}[1]
+{\begin{parts} \vspace{.08in}%
+\renewcommand{\bpart}[1]{%
+  \begin{minipage}{.45\linewidth}%
+    \part ##1 \vspace{#1}% 
+  \end{minipage}\hfill%
+}}
+{\end{parts}}
+
 \endinput
