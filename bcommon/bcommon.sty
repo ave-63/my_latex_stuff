@@ -8,6 +8,12 @@
 [1994/12/01]% LaTeX date must be December 1994 or later
 \ProvidesPackage{bcommon}
 
+\RequirePackage{arydshln} 
+\RequirePackage{graphicx}
+\usepackage{enumitem}
+\graphicspath{{c:/Users/bensm/OneDrive/local_tex_stuff/dont_delete_images/}}
+
+
 \newif\if@sans
 \newif\if@roman
 
@@ -20,30 +26,33 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages, Fonts
+% Might need some tweaking...
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%\ExecuteOptions{roman}
 
 \ProcessOptions*
 \if@sans
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
 \RequirePackage{arev}
+%Alt option:
+%\RequirePackage{unicode-math}
+%\setmainfont{Open Sans}
+%\setmathfont{TeX Gyre DejaVu Math}[Scale=MatchUppercase]
+%\setmonofont{Inconsolata}[Scale=MatchLowercase]
 \fi
 \if@roman
-\RequirePackage{mathpazo}
-\RequirePackage{fontspec}
-\setmainfont{TeX Gyre Pagella}
-\setsansfont{TeX Gyre Heros}[Scale=MatchLowercase]
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{unicode-math}
+\setmainfont{Cambria}
+\setmathfont{Cambria Math}
 \setmonofont{Inconsolata}[Scale=MatchLowercase]
+%other option:
+%\setmainfont{DejaVu Serif}
+%\setmathfont{TeX Gyre DejaVu Math}[Scale=MatchUppercase]
 \fi
 
 
-\RequirePackage{amsmath}
-%\RequirePackage{amsfonts} I think this is redundant of mathpazo?
-\RequirePackage{amssymb}
-\RequirePackage{arydshln} 
-\RequirePackage{graphicx}
-\usepackage{enumitem}
-\graphicspath{{c:/Users/bensm/OneDrive/local_tex_stuff/dont_delete_images/}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title Headings
@@ -98,6 +107,24 @@
 
 \newcommand{\bbbvec}[3]{
   \begin{bmatrix} #1 \\ #2 \\ #3 \end{bmatrix}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Graphs, plots
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tikz,pgf,pgfplots}
+
+
+\pgfplotsset{compat=1.15}
+\RequirePackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepgfplotslibrary{fillbetween}
+
+\pgfplotsset{every tick label/.append style={font=\footnotesize}}
+\pgfplotsset{
+	/pgfplots/axis line style={thick,black},
+	/pgfplots/every axis grid/.append style={thin,black!50},
+	/pgfplots/tick style={thick,black}
 }
 
 \endinput

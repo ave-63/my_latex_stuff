@@ -7,7 +7,7 @@
 
 \NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
 [1994/12/01]% LaTeX date must be December 1994 or later
-\ProvidesPackage{bexam}
+\ProvidesPackage{pierce_exam}
 
 \newif\if@sans
 \newif\if@roman
@@ -66,17 +66,6 @@
   \vspace{.2in}
 }
 
-\newcommand{\bdefaultrules}{%
-  {\scriptsize Rules: You may use a calculator but no notes. Do not share 
-    calculators, or look in the general direction of other's tests.
-    Smartphones and smartwatches must be out of sight at all times. I can
-    answer questions about the meaning of English words, and you should ask
-    me if you think a question has a typo. I will \emph{not} give you hints,
-    or comment on your answers, or explain math terminology.}
-  
-  \vspace{.2in}
-}
-
 \newcommand{\bswinstructions}{%
    \small{
       Instructions: For multiple choice problems, circle the best choice. You should have plenty of time, so read carefully!
@@ -86,12 +75,13 @@
    \vspace{.2in}
 }
 
-\newcommand{\bdefaultinstructions}{
-  \small{
-    Instructions:  Box your answers. Show any work that there is to be shown. \\
-    %If you're using calculator tricks, just write a note like ``from
-    %calculator graph, \framebox{$x=5$}." \\
-  }
+\newcommand{\METinstructions}{
+  \emph{Instructions: 
+    \begin{itemize}
+      \item Cell phones and smart watches must be out of sight at all times.
+      \item Only the scantron will be graded. You may use this test, including the blank page at the end, as scratch paper. 
+      \item When you are finished, raise your hand and the proctor will collect the materials.
+    \end{itemize}}
   \hrulefill
   \vspace{.2in}
 }
@@ -99,12 +89,12 @@
 \pagestyle{foot}
 \runningfootrule
 \firstpagefooter{}{}{}
-\runningfooter{\small{Pierce College - Math \bcourse\ - B. Smith}}{\small{\btitle}}{\small{Page \thepage\ of \numpages}}
+\runningfooter{\small{Pierce College - Math \bcourse\ }}{\small{\btitle}}{\small{Page \thepage\ of \numpages}}
 \extraheadheight{-.5in}
 \extrafootheight{-.2in}
 \extrawidth{1in}
-\bracketedpoints
-\pointname{ pts}
+%\bracketedpoints
+%\pointname{ pts}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Questions, Parts, Choices
@@ -124,10 +114,11 @@
 
 %This creates a choices environment with a little extra vspace
 %at the beginning, because the default spacing was too small.
-\newenvironment{bchoices}{\vspace{.08in} \begin{choices}}{ \end{choices}}
+\newenvironment{bchoices}{\vspace{.05in} \begin{choices}}{\vspace{.08in} \end{choices}}
 
 %Added 12/2018. Needed for below.
 \newcommand{\bpart}[1]{\part #1}
+\newcommand{\bchoice}[1]{\choice #1}
 
 %Parts environmant that takes ammt of vertical extra space between parts.
 \newenvironment{onecolparts}[1]
@@ -147,5 +138,16 @@
   \end{minipage}\hfill%
 }}
 {\end{parts}}
+
+%Added 12/2018: 
+%Parts environment with two columns. Argument is ammt of extra vertical space between parts.
+\newenvironment{twocolchoices}%[1]
+{\begin{choices} \vspace{.08in}%
+\renewcommand{\bchoice}[1]{%
+  \begin{minipage}{.45\linewidth}%
+    \choice ##1 %\vspace{#1}% 
+  \end{minipage}\hfill%
+}}
+{\end{choices}}
 
 \endinput
