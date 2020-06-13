@@ -1,0 +1,66 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% For Notes. Not any special room for 3-hole punches.
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}% LaTeX 2.09 can't be used (nor non-LaTeX). This was copied from amsmath.
+[1994/12/01]% LaTeX date must be December 1994 or later
+\ProvidesPackage{bnotes}
+
+\newif\if@sans
+\newif\if@roman
+
+\DeclareOption{sans}{%
+\@sanstrue}
+
+\DeclareOption{roman}{%
+\@romantrue}
+
+%\ExecuteOptions{roman}
+\ProcessOptions*
+\if@sans
+\RequirePackage[sans]{bcommon}
+\fi
+\if@roman
+\RequirePackage[roman]{bcommon}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ex, Examples, Exercises counters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{ex}[subsection] %I don't think I'm still using this but maybe?
+\newenvironment{ex}[1][]{\refstepcounter{ex}\par\medskip\noindent
+   \textbf{Ex~\theex. #1} }{\medskip}
+
+\newcounter{exercise}[subsection]
+\newcommand{\exercise}{\refstepcounter{exercise}\par\medskip\noindent
+   \textbf{Exercise~\theexercise.} }
+
+\newcounter{example}[subsection]
+\newcommand{\example}{\refstepcounter{example}\par\medskip\noindent
+   \textbf{Example~\theexample.} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Horizontal, tabbed question lists
+% Argument to horiparts is the number of columns.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{tabto}
+
+\def\changemargin#1{\list{}{\leftmargin#1}\item[]}
+\let\endchangemargin=\endlist 
+
+\newenvironment{horiparts}[1]{\begin{changemargin}{1.4em}\noindent %
+    \NumTabs{#1} \begin{enumerate*}[label=(\alph*) \hspace{1ex}, itemjoin={\tab}]}
+    {\end{enumerate*}\end{changemargin}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% paragraphs have .75 in margins
+% section headings, other stuff has .5 in margins on left 
+% You'll need to mess with non-paragraphs!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[letterpaper, left=.5in, right=.5in, top=.25in, bottom=.5in]{geometry}
+
+
+\endinput

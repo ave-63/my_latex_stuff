@@ -126,6 +126,12 @@
 %at the beginning, because the default spacing was too small.
 \newenvironment{bchoices}{\vspace{.08in} \begin{choices}}{ \end{choices}}
 
+\RequirePackage{tabto}
+
+\newenvironment{horiparts}[1]{%\begin{changemargin}{1.4em}\noindent %
+    \NumTabs{#1} \vspace{.08in} \begin{enumerate*}[label=(\alph*) \hspace{1ex}, itemjoin={\tab}]}
+    {\end{enumerate*}}%\end{changemargin}}
+
 %Added 12/2018. Needed for below.
 \newcommand{\bpart}[1]{\part #1}
 
