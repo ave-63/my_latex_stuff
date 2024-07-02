@@ -34,6 +34,10 @@
 \newenvironment{ex}[1][]{\refstepcounter{ex}\par\medskip\noindent
    \textbf{Ex~\theex. #1} }{\medskip}
 
+\newcounter{warmup}[subsection]
+\newcommand{\warmup}{\refstepcounter{warmup}\par\medskip\noindent
+   \textbf{Warm Up~\thewarmup.} }
+
 \newcounter{exercise}[subsection]
 \newcommand{\exercise}{\refstepcounter{exercise}\par\medskip\noindent
    \textbf{Exercise~\theexercise.} }
