@@ -52,19 +52,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{tabto}
 
-\def\changemargin#1{\list{}{\leftmargin#1}\item[]}
-\let\endchangemargin=\endlist 
+%\def\changemargin#1{\list{}{\leftmargin#1}\item[]}
+%\let\endchangemargin=\endlist 
 
-\newenvironment{horiparts}[1]{\begin{changemargin}{1.4em}\noindent %
-    \NumTabs{#1} \begin{enumerate*}[label=(\alph*) \hspace{1ex}, itemjoin={\tab}]}
-    {\end{enumerate*}\end{changemargin}}
+%\newenvironment{horiparts}[1]{\begin{changemargin}{1.4em}\noindent %
+%    \NumTabs{#1} \begin{enumerate*}[label=(\alph*) \hspace{1ex}, itemjoin={\tab}]}
+%    {\end{enumerate*}\end{changemargin}}
+% above changed to below summer 2024, when changing to landscape multicol.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% justify environment is part of ragged2e. It's needed here because \RaggedRight
+% made horiparts fail for some reason.
+\newenvironment{horiparts}[1]{\noindent %
+    \NumTabs{#1} \begin{justify}\begin{enumerate*}[label=(\alph*) \hspace{1ex}, itemjoin={\tab}]}
+    {\end{enumerate*}\end{justify}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % paragraphs have .75 in margins
 % section headings, other stuff has .5 in margins on left 
 % You'll need to mess with non-paragraphs!
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage[letterpaper, left=.5in, right=.5in, top=.25in, bottom=.5in]{geometry}
+\RequirePackage[letterpaper, left=.4in, right=.4in, top=.25in, bottom=.5in]{geometry}
 
 
 \endinput

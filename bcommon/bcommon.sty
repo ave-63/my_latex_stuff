@@ -23,7 +23,6 @@
 \DeclareOption{roman}{%
 \@romantrue}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Packages, Fonts
 % Might need some tweaking...
@@ -47,6 +46,8 @@
 \RequirePackage{unicode-math}
 \setmainfont{Libertinus Serif}
 \setmathfont{Libertinus Math}
+%\setmainfont{IBM Plex Serif}
+%\setmathfont{IBM Plex Math Beta 240212}
 \setmonofont{Source Code Pro}[Scale=MatchLowercase]
 %other option:
 %\setmainfont{DejaVu Serif}
@@ -105,11 +106,11 @@
 
 \newcommand{\bbox}[1]{%
 \setlength\oldfboxsep\fboxsep \setlength{\fboxsep}{.1in}%
-\setlength\myminiwidth\textwidth%
+\setlength\myminiwidth\linewidth%
 \addtolength\myminiwidth{-0.2in}%
 \vspace{0.1in}
 
-\noindent \fbox{\begin{minipage}{\myminiwidth}#1\end{minipage}}\vspace{0.1in}\setlength\fboxsep\oldfboxsep}
+\noindent \fbox{\begin{minipage}{\myminiwidth}\RaggedRight#1\end{minipage}}\vspace{0.1in}\setlength\fboxsep\oldfboxsep}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Math Style
@@ -159,5 +160,11 @@
 %	/pgfplots/every axis grid/.append style={thin,black!50},
 %	/pgfplots/tick style={thick,black}
 %}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Ragged right added summer 2024
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ragged2e}
+\RaggedRight
 
 \endinput
