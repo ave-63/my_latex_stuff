@@ -10,12 +10,16 @@
 
 \newif\if@sans
 \newif\if@roman
+\newif\if@afour
 
 \DeclareOption{sans}{%
 \@sanstrue}
 
 \DeclareOption{roman}{%
 \@romantrue}
+
+\DeclareOption{afour}{%
+\@afourtrue}
 
 %\ExecuteOptions{roman}
 \ProcessOptions*
@@ -26,6 +30,16 @@
 \RequirePackage[roman]{bcommon}
 \fi
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% paragraphs have .75 in margins
+% section headings, other stuff has .5 in margins on left 
+% You'll need to mess with non-paragraphs!
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\if@afour
+\RequirePackage[a4paper, left=.4in, right=.4in, top=.25in, bottom=.5in]{geometry}
+\else
+\RequirePackage[letterpaper, left=.4in, right=.4in, top=.25in, bottom=.5in]{geometry}
+\fi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ex, Examples, Exercises counters
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
