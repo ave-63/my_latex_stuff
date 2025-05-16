@@ -164,9 +164,14 @@
 %}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Ragged right added summer 2024
+%  Ragged right added summer 2024.
+%  \RaggedRight has been causing problems with several things:
+%  - text in tikz pictures
+%  - makecell multiline cells
+%  - hugely stretching in equations in exams and in bboxes
+%  So, I'm getting rid of it and put it in each document as needed
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{ragged2e}
-\RaggedRight
+%\RequirePackage{ragged2e}
+%\RaggedRight
 
 \endinput
