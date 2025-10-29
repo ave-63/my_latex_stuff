@@ -8,7 +8,7 @@
 [1994/12/01]% LaTeX date must be December 1994 or later
 \ProvidesPackage{bcommon}
 
-\RequirePackage{arydshln} 
+%\RequirePackage{arydshln}  %arydshln was breaking makecell + \hline for some reason!
 \RequirePackage{graphicx}
 \usepackage[inline]{enumitem}
 \graphicspath{{/home/ben/nxc/dont_delete_images/}}
@@ -112,7 +112,9 @@
 \addtolength\myminiwidth{-0.2in}%
 \vspace{0.1in}
 
-\noindent \fbox{\begin{minipage}{\myminiwidth}\RaggedRight#1\end{minipage}}\vspace{0.1in}\setlength\fboxsep\oldfboxsep}
+%Does getting rid of RaggedRight break things?
+\noindent \fbox{\begin{minipage}{\myminiwidth}%\RaggedRight
+  #1\end{minipage}}\vspace{0.1in}\setlength\fboxsep\oldfboxsep}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Math Style
